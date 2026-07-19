@@ -11,11 +11,10 @@ author = 'Sergey "Shnatsel" Davidoff'
 +++
 
 _Rust’s_ [_SIMD abstractions_](https://shnatsel.medium.com/the-state-of-simd-in-rust-in-2025-32c263e5f53d) _were not as safe as I’d like. Until now._
-
+<!-- more -->
 It’s no secret that raw SIMD intrinsics are unpleasant to use.
 
 You want to write `a + b`, not this monstrosity:
-<!-- more -->
 
 ```rust
 unsafe {
