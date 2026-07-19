@@ -1,0 +1,34 @@
+base_url = "https://shnatsel.github.io"
+title = 'Sergey "Shnatsel" Davidoff'
+description = "Rust, security, and making computers go brrr"
+default_language = "en"
+theme = "zola-pickles"
+
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+feed_limit = 20
+
+compile_sass = true
+minify_html = true
+build_search_index = false
+
+taxonomies = [
+    { name = "tags", feed = true },
+]
+
+[markdown]
+render_emoji = true
+external_links_target_blank = false
+external_links_no_follow = true
+external_links_no_referrer = false
+smart_punctuation = false
+
+[markdown.highlighting]
+theme = "catppuccin-latte"
+
+[extra]
+subtitle = "Rust, security, and making computers go brrr"
+copyright = "Copyright 2026 Sergey Davidoff"
+analytics = ""
+katex_enable = false
+instantpage_enable = true
