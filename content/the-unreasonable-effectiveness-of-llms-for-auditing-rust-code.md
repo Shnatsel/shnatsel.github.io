@@ -11,7 +11,7 @@ author = 'Sergey "Shnatsel" Davidoff'
 +++
 
 As a lead of the [Rust Secure Code Working Group](https://rust-lang.org/governance/teams/#team-wg-secure-code), I got free access to GPT-5.5 via the [Codex for Open Source](https://openai.com/form/codex-for-oss/). Since then I’ve found and reported dozens of issues of varying severity in widely used Rust crates.
-
+<!-- more -->
 Separately, the [Rust Foundation security initiative](https://rustfoundation.org/security-initiative/) got access to [Mythos](https://www.anthropic.com/claude/mythos) via [Project Glasswing](https://www.anthropic.com/glasswing), and their report should also be coming soon. I’ve coordinated with them so that our audit targets would not overlap.
 
 While I haven’t found any truly devastating vulnerabilities, I am very impressed with GPT-5.5 for auditing Rust source code, and I’ll absolutely be adding it to my toolkit alongside fuzzers.

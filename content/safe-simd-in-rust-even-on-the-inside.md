@@ -15,6 +15,7 @@ _Rust’s_ [_SIMD abstractions_](https://shnatsel.medium.com/the-state-of-simd-i
 It’s no secret that raw SIMD intrinsics are unpleasant to use.
 
 You want to write `a + b`, not this monstrosity:
+<!-- more -->
 
 ```rust
 unsafe {
