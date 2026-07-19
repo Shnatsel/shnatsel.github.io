@@ -1,5 +1,18 @@
 {% extends "zola-pickles/templates/index.html" %}
 
+{% block extra_head -%}
+{% if config.extra.goatcounter_endpoint -%}
+<script>
+    window.goatcounter = {
+        referrer: function() {
+            return document.referrer;
+        },
+    };
+</script>
+<script data-goatcounter="{{ config.extra.goatcounter_endpoint }}" async src="//gc.zgo.at/count.js"></script>
+{%- endif %}
+{%- endblock extra_head %}
+
 {% block css -%}
 <link rel="stylesheet" href="{{ get_url(path="base.css") }}" />
 <link rel="stylesheet" href="{{ get_url(path="fonts.css") }}" />

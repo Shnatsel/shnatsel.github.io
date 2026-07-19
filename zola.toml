@@ -30,5 +30,6 @@ theme = "catppuccin-latte"
 subtitle = "Rust, security, and making computers go brrr"
 copyright = "Copyright 2026 Sergey Davidoff"
 analytics = ""
+goatcounter_endpoint = "https://shnatsel.goatcounter.com/count"
 katex_enable = false
 instantpage_enable = true
