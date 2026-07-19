@@ -1,0 +1,170 @@
+$body-font: "Source Serif 4", Georgia, serif;
+$ui-font: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$body-text: rgb(35, 35, 35);
+$heading-text: #171717;
+$muted-text: #5f5f5f;
+$page-background: #fbfbfb;
+
+html {
+  background-color: $page-background;
+}
+
+body {
+  background-color: $page-background;
+  color: $body-text;
+  font-family: $body-font;
+  line-height: 1.65;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.c-title,
+.p-title,
+.p-subtitle,
+.c-article__meta,
+.c-time,
+.c-pagination,
+.c-article__btn,
+.p-copyright,
+nav {
+  font-family: $ui-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $heading-text;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.c-title,
+.p-title {
+  font-weight: 750;
+}
+
+.p-title {
+  line-height: 1.05;
+}
+
+.p-subtitle {
+  color: $muted-text;
+  font-weight: 550;
+}
+
+.p-article {
+  color: $body-text;
+}
+
+.p-article header h1 {
+  font-size: 4rem;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.p-article__body {
+  font-size: 2rem;
+  line-height: 1.68;
+}
+
+.p-article__body p,
+.p-article__body li,
+.p-article__body dd,
+.p-article__body summary {
+  font-size: 2rem;
+}
+
+.p-article__body p {
+  margin: 0 0 1.35em;
+}
+
+.p-article__body ul,
+.p-article__body ol {
+  margin: 0 0 1.35em 1.4em;
+  padding: 0;
+}
+
+.p-article__body li {
+  margin: 0.35em 0;
+}
+
+.p-article__body h2 {
+  margin-top: 1.7em;
+  font-size: 3.1rem;
+}
+
+.p-article__body h3 {
+  margin-top: 1.45em;
+  font-size: 2.55rem;
+}
+
+.c-article__summary,
+.c-article__meta,
+.c-time,
+.p-copyright,
+blockquote,
+del {
+  color: $muted-text;
+}
+
+.c-article__summary {
+  font-family: $body-font;
+  font-size: 1.9rem;
+  line-height: 1.62;
+}
+
+a {
+  color: #174ea6;
+}
+
+a:hover {
+  color: #0b3d86;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+pre {
+  line-height: 1.5;
+}
+
+pre code {
+  font-size: 1.45rem;
+  line-height: 1.5;
+}
+
+code {
+  color: $heading-text;
+}
+
+:not(pre) > code {
+  background-color: #f3f3f3;
+  border: 1px solid #b8b8b8;
+  border-radius: 4px;
+  padding: 0.05em 0.32em;
+}
+
+@media screen and (max-width: 767px) {
+  .p-article header h1 {
+    font-size: 3.3rem;
+  }
+
+  .p-article__body,
+  .p-article__body p,
+  .p-article__body li,
+  .p-article__body dd,
+  .p-article__body summary {
+    font-size: 1.9rem;
+  }
+}

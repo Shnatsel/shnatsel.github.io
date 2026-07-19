@@ -1,0 +1,10 @@
+{% extends "zola-pickles/templates/index.html" %}
+
+{% block css -%}
+<link rel="stylesheet" href="{{ get_url(path="base.css") }}" />
+<link rel="stylesheet" href="{{ get_url(path="fonts.css") }}" />
+<link rel="stylesheet" href="{{ get_url(path="site.css") }}" />
+<link href="{{ get_url(path="fontawesome/fontawesome.css") }}" rel="stylesheet">
+<link href="{{ get_url(path="fontawesome/brands.css") }}" rel="stylesheet">
+<link href="{{ get_url(path="fontawesome/solid.css") }}" rel="stylesheet">
+{%- endblock css %}
