@@ -10,8 +10,6 @@ tags = ["Rust", "Security", "LLMs", "Auditing"]
 author = 'Sergey "Shnatsel" Davidoff'
 +++
 
-*This is a mirror of [my article](https://shnatsel.medium.com/the-unreasonable-effectiveness-of-llms-for-auditing-rust-code-d4df8bf0afd3) which Medium apparently refuses to show to some people.*
-
 As a lead of the [Rust Secure Code Working Group](https://rust-lang.org/governance/teams/#team-wg-secure-code), I got free access to GPT-5.5 via the [Codex for Open Source](https://openai.com/form/codex-for-oss/). Since then I’ve found and reported dozens of issues of varying severity in widely used Rust crates.
 
 Separately, the [Rust Foundation security initiative](https://rustfoundation.org/security-initiative/) got access to [Mythos](https://www.anthropic.com/claude/mythos) via [Project Glasswing](https://www.anthropic.com/glasswing), and their report should also be coming soon. I’ve coordinated with them so that our audit targets would not overlap.
@@ -142,3 +140,5 @@ For example, a GPT-5.5 alone didn’t discover [several bugs](https://github.com
 But we don’t have to rely on heuristics. Rust without unsafe does guarantee the absence of memory safety bugs.
 
 So I’ll [keep](https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e) [shrinking](https://shnatsel.medium.com/safe-simd-in-rust-even-on-the-inside-c6f1ff381828) the unsafe surface where I can, and I'm glad to have these tools for when I can't.
+
+*This article was originally published [on my Medium](https://shnatsel.medium.com/the-unreasonable-effectiveness-of-llms-for-auditing-rust-code-d4df8bf0afd3)*

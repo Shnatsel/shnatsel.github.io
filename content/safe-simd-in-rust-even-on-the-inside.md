@@ -10,8 +10,6 @@ tags = ["Rust", "SIMD", "Unsafe Rust"]
 author = 'Sergey "Shnatsel" Davidoff'
 +++
 
-This is a mirror of [my article](https://shnatsel.medium.com/safe-simd-in-rust-even-on-the-inside-c6f1ff381828) which Medium reportedly refuses to show to some people.
-
 _Rust’s_ [_SIMD abstractions_](https://shnatsel.medium.com/the-state-of-simd-in-rust-in-2025-32c263e5f53d) _were not as safe as I’d like. Until now._
 
 It’s no secret that raw SIMD intrinsics are unpleasant to use.
@@ -309,3 +307,5 @@ The key insight of combining tokens with a single safe wrapper that delegates to
 Daniel’s approach allows fine-grained tracking of every individual CPU feature, as opposed to a handful of fixed CPU feature levels that `fearless_simd` uses. It is more expressive, but came at the cost of complexity, and his approach never got merged because no other maintainer stepped up to review it. I still hope it will be published as a standalone crate someday.
 
 Thanks to Daniel and to [Laurenz Stampfl](https://github.com/LaurenzV) for reviewing all my PRs to `fearless_simd`, they were big and the quick reviews are really appreciated!
+
+*This article was originally published [on my Medium](https://shnatsel.medium.com/safe-simd-in-rust-even-on-the-inside-c6f1ff381828).*
