@@ -32,7 +32,7 @@ This example uses only 8 bytes, or 64 bits. In practice hardware implements shuf
 
 ## Understanding the implementation
 
-On a high level, [the current implementation](https://github.com/rust-lang/rust/blob/d527bc9bfa297ca7fd7f5ae93781eeec42073170/library/portable-simd/crates/core_simd/src/swizzle_dyn.rs) of `std::simd::swizzle_dyn` is very simple: use the native hardware operation is available, otherwise give up and move bytes one by one.
+On a high level, [the current implementation](https://github.com/rust-lang/rust/blob/d527bc9bfa297ca7fd7f5ae93781eeec42073170/library/portable-simd/crates/core_simd/src/swizzle_dyn.rs) of `std::simd::swizzle_dyn` is very simple: use the native hardware operation if available, otherwise give up and move bytes one by one.
 
 Even when hardware shuffles for a given size are available, `swizzle_dyn` doesn't always map to the hardware cleanly. It promises that the values for out-of-bounds indices will be set to `0`, while x86 hardware shuffle just lets them wrap, so `swizzle_dyn` has to do extra work to uphold this guarantee.
 
