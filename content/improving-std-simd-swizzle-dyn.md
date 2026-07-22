@@ -85,7 +85,7 @@ That wasn't at all apparent when browsing the code. I nearly wasted a lot of tim
 
 Let's say we want to execute `[A,D,F,I,M,R,S,T].swizzle_dyn([2,0,6,7,6,3,4,1])` but all we have is half-width vectors. `swizzle_dyn` setting out-of-bounds elements to zero is going to help us here.
 
-To process the first half, `[2,0,6,7]`, we run `[A,D,F,I].swizzle_dyn([2,0,6,7])` and `[M,R,S,T].swizzle_dyn([2,0,6,7])`, which gives us `[F,A,0,0]` and `[0,0,S,T]`. Then we combine these two intermediate results with a cheap bitwise OR, et voilà! We get `[F,A,S,T]`! Now repeat the same for the second half, and we're done!
+To process the first half, `[2,0,6,7]`, we run `[A,D,F,I].swizzle_dyn([2,0,6,7])` and `[M,R,S,T].swizzle_dyn([-2,-4,2,3])`, which gives us `[F,A,0,0]` and `[0,0,S,T]`. Then we combine these two intermediate results with a cheap bitwise OR, et voilà! We get `[F,A,S,T]`! Now repeat the same for the second half, and we're done!
 
 It is rare that a portability guarantee actually helps optimize something instead of incurring additional work, but this time we're in luck!
 
