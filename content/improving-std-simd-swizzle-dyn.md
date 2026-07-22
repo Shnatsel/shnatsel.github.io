@@ -195,7 +195,7 @@ AVX2 vb64: 5.9 GiB/s encode, 5.7 GiB/s decode
 
 Brute-forcing the work with emulated swizzles and landing in the same ballpark as an implementation that carefully avoids them using [a clever perfect hash](https://mcyoung.xyz/2023/11/27/simd-base64/#simd-hash-table) is not too shabby! And ours have the added benefit of swapping out the base64 alphabet at will, while `vb64`'s perfect hash is tied to the standard base64 alphabet.
 
-A production implementation without SIMD runs at 2.7 GiB/s encode and 2.3 GiB/s decode, so SIMD is well worth it. Our implementation on an AVX-512 CPU runs at ~13 GiB/s, while vb64 doesn't benefit from AVX-512 nearly as much. A [state-of-the art](https://arxiv.org/abs/1910.05109) AVX-512 implementation [translated to safe Rust](https://github.com/Shnatsel/intrepid-base64/blob/main/src/avx512.rs) runs at 35 GiB/s encode and 20 GiB/s decode, so our prototype is not optimal, but still lets us see improvements to individual operations benefit a larger algorithm.
+A [production implementation without SIMD](https://crates.io/crates/base64) runs at 2.7 GiB/s encode and 2.3 GiB/s decode, so SIMD is well worth it. Our implementation on an AVX-512 CPU runs at ~13 GiB/s, while vb64 doesn't benefit from AVX-512 nearly as much. A [state-of-the art](https://arxiv.org/abs/1910.05109) AVX-512 implementation [translated to safe Rust](https://github.com/Shnatsel/intrepid-base64/blob/main/src/avx512.rs) runs at 35 GiB/s encode and 20 GiB/s decode, so our prototype is not optimal, but still lets us see improvements to individual operations benefit a larger algorithm.
 
 I've run these measurements on my Zen 4 workstation on `fearless_simd`, because the contributing guide for `std::simd` doesn't say how to benchmark your changes.
 
