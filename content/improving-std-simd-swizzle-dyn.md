@@ -132,7 +132,7 @@ compose
 
 That's pretty clever. The core insight is this: 
 
-CPUs have a bunch of different hardware curquits, and the circuit that handles shuffles is entirely separate from a circuit that handles arithmetic, so you can run them both at the same time. This is known as "[instruction-level parallelism](https://en.wikipedia.org/wiki/Instruction-level_parallelism)".
+CPUs have a bunch of different hardware curcuits, and the circuit that handles shuffles is entirely separate from a circuit that handles arithmetic, so you can run them both at the same time. This is known as "[instruction-level parallelism](https://en.wikipedia.org/wiki/Instruction-level_parallelism)".
 
 The above code is carefully tuned to spread the work across different circuits in such a way that it doesn't pile too much work on a single circuit (aka "port") and take advantage of this parallelism to speed things up.
 
