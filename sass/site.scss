@@ -121,6 +121,14 @@ del {
   color: $muted-text;
 }
 
+.p-article__body blockquote {
+  margin: 0 0 1.35em;
+
+  & * {
+    margin: 0;
+  }
+}
+
 .c-article__summary {
   color: $summary-text;
   font-family: $body-font;
