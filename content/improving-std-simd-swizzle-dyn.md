@@ -227,3 +227,13 @@ So here's what I've learned:
 - LLVM can mangle perfectly optimal SIMD code, even if you use intrinsics that are supposed to lower to a specific instruction. Not just in Rust, in C and C++ too!
 
 And, well, `std::simd::swizzle_dyn` will be up to 6x faster once this work gets synced into the standard library. You're welcome!
+
+## Addenum
+
+Since this article was originally written, I've also found [a better formulation](https://github.com/rust-lang/portable-simd/pull/545) of `swizzle_dyn` for AVX-512 with VBMI, and [Cristi Vîjdea](https://github.com/axnsan12) suggested [a better formulation](https://github.com/rust-lang/portable-simd/pull/542#issuecomment-5077221668) for ssse3. Both of these are now merged into `std::simd`.
+
+There is also [an ongoing effort](https://discourse.llvm.org/t/rfc-ir-ability-to-shuffle-vectors-with-dynamic-mask/91282) to add a native LLVM operation for `swizzle_dyn`, the timing of which coincided with my work. This would alleviate the miltiversioning issue in `std::simd`, and allow natively targeting even more architectures.
+
+ There's also a separate [proposal](https://github.com/rust-lang/rust/pull/158713) to add a Rust compiler feature that delays target feature checks, which could allow the current intrinsics-based implementation to be multiversioned.
+
+In the meantime `fearless_simd` picked up the swizzle function matching `std::simd` behavior, and a cheaper variant that doesn't return zero out-of-bounds indices. The cheaper variant produces arbitrary (but memory-safe) values instead. That way you don't have to pay for the zeroing if you don't use it.
