@@ -28,7 +28,7 @@ theme = "catppuccin-latte"
 
 [extra]
 subtitle = "Rust, security, and making computers go brrr"
-copyright = "Copyright 2026 Sergey Davidoff"
+copyright = "Copyright 2026 Sergey Davidoff. 100% brain-made words."
 analytics = ""
 goatcounter_endpoint = "https://shnatsel.goatcounter.com/count"
 katex_enable = false
