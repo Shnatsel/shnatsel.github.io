@@ -230,7 +230,7 @@ And, well, `std::simd::swizzle_dyn` will be up to 6x faster once this work gets 
 
 ## Addenum
 
-Since this article was originally written, I've also found [a better formulation](https://github.com/rust-lang/portable-simd/pull/545) of `swizzle_dyn` for AVX-512 with VBMI, and [Cristi Vîjdea](https://github.com/axnsan12) suggested [a better formulation](https://github.com/rust-lang/portable-simd/pull/542#issuecomment-5077221668) for ssse3. Both of these are now merged into `std::simd`.
+Since this article was originally written, I've also found [a better formulation](https://github.com/rust-lang/portable-simd/pull/545) of `swizzle_dyn` for AVX-512 with VBMI, and [Cristi Vîjdea](https://github.com/axnsan12) suggested [a better formulation](https://github.com/rust-lang/portable-simd/pull/542#issuecomment-5077221668) for ssse3. And together with [@dzaima](https://github.com/dzaima) we've found [an even better formulation](https://github.com/rust-lang/portable-simd/pull/548) for AVX2. All of these are now merged into `std::simd`.
 
 There is also [an ongoing effort](https://discourse.llvm.org/t/rfc-ir-ability-to-shuffle-vectors-with-dynamic-mask/91282) to add a native LLVM operation for `swizzle_dyn`, the timing of which coincided with my work. This would alleviate the miltiversioning issue in `std::simd`, and allow natively targeting even more architectures.
 
