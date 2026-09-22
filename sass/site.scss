@@ -168,6 +168,10 @@ code {
   color: $heading-text;
 }
 
+a code {
+  color: inherit;
+}
+
 :not(pre) > code {
   background-color: #f3f3f3;
   border: 1px solid #b8b8b8;
