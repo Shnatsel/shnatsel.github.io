@@ -95,7 +95,7 @@ Floating-point types also need special care.
 
 Previously automatic vectorization didn't work with floating-point types because it would change the precision of the result (often for the better, but the compiler is not permitted to change any observable results).
 
-This changed in [Rust 1.88](https://doc.rust-lang.org/stable/releases.html#version-1880-2025-06-26) which stabilized algebraic ops such as [`algebraic_add()`](https://doc.rust-lang.org/stable/core/primitive.f32.html#method.algebraic_add) that let the compiler change the observable result, like a [less dangerous `-ffast-math`](https://codingnest.com/files/Fun,%20Safe,%20Math%20Optimizations.pdf). You still have to rewrite your code to use them for it to be eligible for vectorization in most cases.
+This changed in [Rust 1.98](https://doc.rust-lang.org/stable/releases.html#version-1980-2026-08-20) which stabilized algebraic ops such as [`algebraic_add()`](https://doc.rust-lang.org/stable/core/primitive.f32.html#method.algebraic_add) that let the compiler change the observable result, like a [less dangerous `-ffast-math`](https://codingnest.com/files/Fun,%20Safe,%20Math%20Optimizations.pdf). You still have to rewrite your code to use them for it to be eligible for vectorization in most cases.
 
 And you still need to get multiversioning somehow. So while we're at it...
 
