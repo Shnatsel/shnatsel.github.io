@@ -138,7 +138,7 @@ The TL;DR table:
 | ------------------------- |:-------------------:|:-------------:|:----:|:----:|:---------:|
 | multiversioning           |        📦/🛠️        |      ✅       |  ❌  |  ✅  |    ✅     |
 | fixed-width vectors       |         ✅          |      ✅       |  ✅  |  ☑️  |    ❌     |
-| hardware-width vectors    |         🛠️          |      ✅       |  🛠️  |  ✅  |    ✅     |
+| hardware-width vectors    |        📦/🛠️        |      ✅       |  🛠️  |  ✅  |    ✅     |
 | generic over element type |         ✅          |      ✅       |  🛠️  |  🛠️  |    ✅     |
 | generic over vector width |         ✅          |      ✅       |  🛠️  |  ✅  |    ✅     |
 | safe access to intrinsics |         🛠️          |      ✅       |  ☑️  |  ✅  |    🛠️     |
@@ -182,9 +182,9 @@ The closest thing we have to proper trigonometry is the [sleef](https://crates.i
 
 `std::simd` is uniquely flexible when it comes to multiversioning. You can use the [multiversion](https://crates.io/crates/multiversion) crate or the multiversioning from any other SIMD crate in this section. All the other crates work with their own built-in multiversioning only.
 
-Its `Simd<T, N>` API looks like it would be very elegant and work great if you could just do math on `N`, but [you cannot](https://rust-lang.github.io/project-const-generics/documents/min_const_generics_plan.html). That feature is very incomplete even on nightly, and without it using `Simd<T, N>` to get hardware-sized vectors gets very ugly very quickly.
+Its `Simd<T, N>` API looks like it would be very elegant and work great if you could just do math on `N`, but [you cannot](https://rust-lang.github.io/project-const-generics/documents/min_const_generics_plan.html). That feature is very incomplete even on nightly. Without it using `Simd<T, N>` to get hardware-sized vectors is doable, but [a lot uglier](https://gist.github.com/Shnatsel/edc642125ac73fa7c365216c3a938802).
 
-While you can use `std::simd` directly in many cases and have it perform okay, disparately tacking on features through third-party crates only gets you so far. [`sleef` crate](https://crates.io/crates/sleef) doesn't work with the [`multiversion` crate](https://crates.io/crates/multiversion), you have to fork `sleef` and mate them yourself. Trying to get native-width vectors [clashes with multiversioning](https://gist.github.com/Shnatsel/05b6e650bfab18b450844dba653e05f7) and doesn't work that well even on its own. Third-party extensions work in isolation but don't compose.
+While you can use `std::simd` directly in many cases and have it perform okay, disparately tacking on features through third-party crates only gets you so far. As an example, the [`sleef` crate](https://crates.io/crates/sleef) doesn't work with the [`multiversion` crate](https://crates.io/crates/multiversion), you have to fork `sleef` and mate them yourself. Third-party extensions work in isolation but don't compose.
 
 What you need is an all-in-one solution where all the parts work together. Speaking of which...
 
