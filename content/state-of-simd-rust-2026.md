@@ -451,9 +451,9 @@ With only 128-bit vectors you'd think it is an equivalent of SSE4.2, but it's ac
 
 NEON has the same register space as AVX2, which is often the limiting factor in practice. And instead of making you deal with two 128-bit execution units side by side explicitly, beefy ARM cores transparently run 128-bit operations in parallel via [instruction-level parallelism](https://en.wikipedia.org/wiki/Instruction-level_parallelism), while cheap power-constrained cores can still execute them one by one.
 
-NEON also adds just enough instructions larger than 128 bits to make common operations Just Work. Heck, NEON on M4 runs 512-bit swizzles at the same rate as AVX-512 on Zen4!
+NEON also adds just enough instructions larger than 128 bits to make common operations Just Work. In my tests with SIMD base64 decoding, the same algorithm runs 1.5x to 2x faster on NEON than on AVX2 (but still 2x slower than AVX-512).
 
-And all of this in a single, simple programming model instead of three different ones. And it's mandatory in 64-bit ARM chips, with no need for multiversioning!
+And all of this in a single, simple programming model instead of several different ones. And it's mandatory in 64-bit ARM chips, with no need for multiversioning!
 
 The only criticism I can level at Aarch64 NEON is that a single chip has two kinds of cores ("performance" and "efficiency") with completely different execution characteristics, so an instruction sequence that is fast on performance cores is slow on efficiency cores, and vice versa. So even if you know a specific CPU you're targeting, you can't really select an optimal implementation, it's all trade-offs! And when you consider the diversity of ARM CPUs out there, it only gets worse. Fortunately, NEON has enough operations implemented directly as hardware instructions with reasonable performance to prevent this from turning into a total nightmare.
 
