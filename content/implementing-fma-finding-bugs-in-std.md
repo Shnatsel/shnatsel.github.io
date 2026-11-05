@@ -134,6 +134,10 @@ To my surprise, musl developers took my bug report seriously. Both a minimal fix
 
 Looks like code review is a bottleneck regardless of the age of your development tools.
 
+Update: 
+* Both musl fixes have been [committed](https://git.musl-libc.org/cgit/musl/log/src/math/fmaf.c?id=48a619cad667c26e868dbaa5e556c4f0280b86a2), apparently on September 9.
+* FreeBSD fix this issue on [September 12](https://github.com/freebsd/freebsd-src/commit/b08e6a3882b44a09fbda84dd315a431c7a585219).
+
 ## Does this bug matter?
 
 I have no idea.
